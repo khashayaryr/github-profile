@@ -4,6 +4,11 @@ from pathlib import Path
 import streamlit as st
 
 
+project_root = str(Path(__file__).parent.parent.absolute())
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+
 st.set_page_config(
     page_title="GitHub Profile Generator",
     page_icon="🧊",
@@ -28,10 +33,12 @@ tab1, tab2, tab3, tab4 = st.tabs([
     ':computer: Skills',
 ])
 
-with tab1:
-    col1, col2 = st.columns(2)
-    name = col1.text_input('name')
-    email = col2.text_input('email')
+from src.sections import (personal_info, social_info, description)
+
+kwargs = {}
+kwargs = personal_info(tab1, **kwargs)
+kwargs = social_info(tab2, **kwargs)
+kwargs = description(tab3, **kwargs)
 
 st.header('README.md Preview')
 
