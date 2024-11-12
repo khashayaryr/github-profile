@@ -34,3 +34,15 @@ def description(tab, **kwargs):
 
     return kwargs
 
+
+def skills(tab, **kwargs):
+    with tab:
+        st.write("Write your skills. Enter each one into a new line")
+        col1, col2 = st.columns(2)
+        kwargs['skills'] = col1.text_area('Skills:', height=300)
+        kwargs['skills'] = kwargs['skills'].split('\n')
+        kwargs['skills'] = filter(lambda x: x, kwargs['skills'])
+        kwargs['skills'] = [f'- {skill}' for skill in kwargs['skills']]
+        kwargs['skills'] = '\n'.join(kwargs['skills'])
+
+    return kwargs

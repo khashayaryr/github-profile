@@ -33,12 +33,13 @@ tab1, tab2, tab3, tab4 = st.tabs([
     ':computer: Skills',
 ])
 
-from src.sections import (personal_info, social_info, description)
+from src.sections import (personal_info, social_info, description, skills)
 
 kwargs = {}
 kwargs = personal_info(tab1, **kwargs)
 kwargs = social_info(tab2, **kwargs)
 kwargs = description(tab3, **kwargs)
+kwargs = skills(tab4, **kwargs)
 
 st.header('README.md Preview')
 
