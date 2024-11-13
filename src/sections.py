@@ -46,3 +46,22 @@ def skills(tab, **kwargs):
         kwargs['skills'] = '\n'.join(kwargs['skills'])
 
     return kwargs
+
+
+def extensions(tab, **kwargs):
+    with tab:
+        st.write('''Add more to your profile. You can add Github stats, Github profile views, and more.''')
+        kwargs['github'] = st.text_input('Github')
+        if not kwargs['github']:
+            st.warning('For extensions, you must enter your Github username.')
+            kwargs['profile_views'] = None
+            kwargs['github_stats'] = None
+            return kwargs
+
+
+        kwargs['github_stats'] = kwargs['github']
+
+
+        kwargs['profile_views'] = kwargs['github']
+
+    return kwargs

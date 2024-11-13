@@ -1,0 +1,15 @@
+{ name }
+
+{ profile_views }
+{ twitter }
+{ linkedin }
+{ instagram }
+{ email }
+{ website }
+{ github }
+
+{ description }
+
+{ skills }
+
+{ github_stats }
